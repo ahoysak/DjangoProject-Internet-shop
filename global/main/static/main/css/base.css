@@ -1,0 +1,86 @@
+body{
+    background: OldLace;
+    background-size: cover;
+}
+aside{
+    text-align: center;
+    display:flex;
+    justify-content: space-between;
+}
+.menu a{
+    font-size: 22px;
+
+    color: SteelBlue;
+    text-decoration: none;
+}
+.menu li{
+    list-style: none;
+    position: relative;
+}
+.menu__list{
+    display: flex;
+}
+.menu__list>li{
+    margin: 0px 40px 0px 0px;
+}
+.menu__list>li:hover .sub-menu__list{
+    display: block;
+}
+.menu__link{
+    color:  blue;
+}
+.sub-menu__list{
+    display: none;
+    min-width: 130px;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    padding: 5px 0px 0px 0px;
+}
+.sub-menu__list{
+    background-color: MistyRose;
+}
+.sub-menu__link{
+    color: black;
+    display: inline-block;
+    padding: 15px 10px;
+}
+.sub-menu__list>li:hover .sub-sub-menu__list{
+    display: block;
+}
+.form__login{
+    border-width: 5px;
+    border-color: Teal;
+    margin: 150px;
+    border-style: none;
+    font-size: 30px;
+    text-align: center;
+}
+.form__add{
+    text-align: center;
+    font-size: 25px
+}
+.form__test{
+    border-width: 5px;
+    border-color: black;
+    margin: 150px;
+    border-style: none;
+    font-size: 30px;
+    text-align: center;
+}
+.btn-input__form, .form__login{
+    font-size: 30px;
+}
+.not_auth{
+    padding: 255px 10px;
+    border-style: none;
+    text-align: center;
+    font-size: 30px;
+}
+.btn-for-login{
+    font-size: 25px;
+}
+.sub__form_login{
+    font-size: 27px;
+    text-align: center;
+}

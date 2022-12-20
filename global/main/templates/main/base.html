@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Online Shop {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+</head>
+<body>
+    <aside>
+        <nav class="menu">
+            <ul class="menu__list">
+            <li>
+                <a href="{% url 'home' %}" class="menu__link">Online Shop</a>
+            </li>
+            <li>
+                <a href="{% url 'new_device' %}" class="menu__link">Add</a>
+            </li>
+            <li>
+                <a href="/category/Samsung/" class="menu__link">Samsung</a>
+                <ul class="sub-menu__list">
+                    <li>
+                        <a href="" class="sub-menu__link">Смартфони</a>
+                    </li>
+                    <li>
+                        <a href="" class="sub-menu__link">Ноутбуки</a>
+                    </li>
+                    <li>
+                        <a href="" class="sub-menu__link">Навушники</a>
+                    </li>
+                    </ul>
+                    <li>
+                <a href="/category/Apple/" class="menu__link">Apple</a>
+                <ul class="sub-menu__list">
+                    <li>
+                        <a href="" class="sub-menu__link">Смартфони</a>
+                    </li>
+                    <li>
+                        <a href="" class="sub-menu__link">Ноутбуки</a>
+                    </li>
+                    <li>
+                        <a href="" class="sub-menu__link">Навушники</a>
+                    </li>
+                    </ul>
+                <li>
+                <a href="/category/Xiaomi/" class="menu__link">Xiaomi</a>
+                <ul class="sub-menu__list">
+                    <li>
+                        <a href="" class="sub-menu__link">Смартфони</a>
+                    </li>
+                    <li>
+                        <a href="" class="sub-menu__link">Ноутбуки</a>
+                    </li>
+                    <li>
+                        <a href="" class="sub-menu__link">Навушники</a>
+                    </li>
+                </ul>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'logout' %}" class="menu__link">Вийти </a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'register' %}" class="menu__link">Увійти </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </aside>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

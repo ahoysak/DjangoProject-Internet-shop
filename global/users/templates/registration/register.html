@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block title %} Реєстрація {% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="not_auth">
+            <p>Ви вже зареєстровані</p>
+            <a href="{% url 'home' %}">Назад</a>
+        </div>
+    {% else %}
+        <form method="POST" class="form__login">
+            <h1>Створення облікового запису</h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <p>Якщо у вас є аккаунт,ви можете авторизуватись <a href="{%url 'login' %}">тут.</a> </p>
+            </div>
+            <button class="btn-input__form"> Зареєструватись</button>
+        </form>
+    {% endif %}
+{% endblock %}

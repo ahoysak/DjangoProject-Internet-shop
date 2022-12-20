@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% block title %} Online Shop / {{ device.title }} {% endblock %}
+
+{% block body %}
+    <div class="description_device">
+            <h3> {{ device.category }} {{ device.title }}</h3>
+            <img src= "{{ device.photo }}">
+            <p>Характеристики</p>
+            <ul>
+                <li>Рік випуску - {{ device.year }}</li>
+                <li>Виробник - {{ device.country }}</li>
+                <li>Кількість камер - {{ device.camera }}</li>
+                <li>Кількість динаміків - {{ device.dynamic }}</li>
+                <li>Дисплей: {{ device.display }}</li>
+                <li>Оперативна пам'ять - {{ device.ram }}</li>
+                <li>Внутрішня пам'ять {{ device.memory }}</li>
+                <li>Тип: {{ device.type_device }}</li>
+                <li>Посилання на магазин: {{ device.link }}</li>
+                <li>Ціна : {{ device.price }} </li>
+            </ul>
+        <p>Короткий опис.</p>
+        <p> {{ device.text }} </p>
+        <p>Більше техніки від <a href="{% url 'information' device.pk %}"> {{ device.title }}</a> </p>
+    </div>
+
+{% endblock %}

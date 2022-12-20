@@ -1,0 +1,19 @@
+{%  extends 'main/base.html' %}
+{% block title %} {{ select }} {% endblock %}
+{% block body %}
+    <h2>Техніка по запиту {{ select }}</h2>
+        {% if category_device %}
+            {% for device in category_device %}
+        <div class="form__test">
+
+            <a href="{% url 'category' device.category %}">{{ device.category }}</a>
+            <a href="{% url 'information' device.pk %}">{{ device.title }}</a>
+            <img src= "{{ device.photo }}">
+        </div>
+            {% endfor %}
+        {% else %}
+            <p>Техніки по запиту {{ select }} немає.<p>
+            <p>Приносимо вибачення, можливо вам сподобається інший <a href="{% url 'home' %}">товар.</a></p>
+        {% endif %}
+
+{% endblock %}

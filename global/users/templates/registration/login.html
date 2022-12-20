@@ -1,0 +1,28 @@
+{%  extends 'main/base.html' %}
+{% block title %} Авторизація {% endblock %}
+
+{% block body %}
+<div class="sub__form_login" >
+    {% if user.is_authenticated %}
+        <div class="not_auth">
+        <p> Ви вже авторизовані </p>
+        <a href="{% url 'home' %}">На головну</a></div>
+    {% else %}
+            <h1 class="sub__form_login">Вхід</h1>
+            <form method="POST" class="form_login_page">
+                {% csrf_token %}
+                <div >
+                    <input class="btn-for-login" type="text" placeholder="Ваш Нікнейм" name="username">
+                </div><br>
+                <div >
+                    <input class="btn-for-login" type="password" placeholder="Пароль" name="password">
+                </div>
+                <button class="btn-input__form">Увійти</button>
+            </form>
+            <div class="not_auth">
+                <p>У вас немає облікового запису?</p>
+                <a class="not-account_user-a" href="{% url 'register'%}">Створити новий обліковий запис</a>
+            </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+{% block title %} Add device {% endblock %}
+
+{% block body %}
+<form class="form__add" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Додати</button>
+</form>
+{% endblock  %}
