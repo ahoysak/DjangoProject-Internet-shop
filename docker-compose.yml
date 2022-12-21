@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: web/Dockerfile
+    volumes:
+      - .:/global
+    ports:
+      - '8035:8080'
+    depends_on:
+      - db
+    networks:
+      - web
+    environment:
+      PYTHONBUFFERED: 1
+
+  db:
+    image: mysql:8.0.29
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_DATABASE: 'django'
+      MYSQL_USER: 'django'
+      MYSQL_ROOT_PASSWORD: 'django'
+      MYSQL_PASSWORD: 'django'
+    restart: always
+    networks:
+      - web
+    volumes:
+      - ./docker/data:/var/lib/mysql
+
+networks:
+  web:
+    driver: bridge
